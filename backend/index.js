@@ -1,11 +1,14 @@
 require('dotenv').config();
 var express = require('express')
 var bodyParser = require('body-parser')
+const apiRouter = require('./routes');
 
 
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
+app.use('/api', apiRouter);
+
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
