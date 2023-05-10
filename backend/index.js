@@ -1,11 +1,13 @@
 require('dotenv').config();
-var express = require('express')
-var bodyParser = require('body-parser')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
 
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
+app.use(cors())
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
@@ -14,12 +16,9 @@ app.use(function (req, res, next) {
   next()
 });
 
+const routes = require('./routes/index')
 
-app.get('/', (req, res) => {
-  res.send('<h1>Prueba tecnica API</h1>');
-});
-
-
+app.use('/api', routes)
 app.listen(4800, function () {
   console.info("API Started")
 });

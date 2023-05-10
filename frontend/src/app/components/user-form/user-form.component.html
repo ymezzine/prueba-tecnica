@@ -1,0 +1,120 @@
+<div class="max-w-xl mx-auto border-1 borer-gray-200 mt-16 divide-y">
+  <h1 class="text-4xl text-center">Adicionar Producto</h1>
+  <div class="mt-8">
+    <form [formGroup]="form" (ngSubmit)="addUser()">
+      <div>
+        <label for="firstName">Nombre</label>
+        <input
+          formControlName="firstName"
+          id="firstName"
+          type="text"
+          class="w-full ring-1 h-12 rounded-md ring-gray-200 focus:outline-gray-300"
+        />
+        <span
+        class="text-red-500"
+          *ngIf="
+            form.get('firstName')?.hasError('required') && form.get('firstName')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+      </div>
+      <div class="mt-4">
+        <label for="descrription">Last Name</label>
+        <input
+          formControlName="lastName"
+          id="lastName"
+          class="h-12 resize-none w-full ring-1 rounded-md ring-gray-200 focus:outline-gray-300"
+        />
+
+        <span
+        class="text-red-500"
+          *ngIf="
+          form.get('lastName')?.hasError('required') && form.get('lastName')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+      </div>
+      <div class="mt-4">
+        <label for="price">Age</label>
+        <input
+          formControlName="age"
+          id="age"
+          type="number"
+          class="w-full ring-1 h-12 rounded-md ring-gray-200 focus:outline-gray-300"
+        />
+
+        <span
+        class="text-red-500"
+          *ngIf="
+            form.get('age')?.hasError('required') && form.get('age')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+      </div>
+      <div class="mt-4">
+        <label for="email">Email</label>
+        <input
+          formControlName="email"
+          id="email"
+          type="email"
+          class="w-full ring-1 h-12 rounded-md ring-gray-200 focus:outline-gray-300"
+        />
+
+        <span
+        class="text-red-500"
+          *ngIf="
+            form.get('email')?.hasError('required') && form.get('email')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+        <span
+        class="text-red-500"
+          *ngIf="
+            form.get('email')?.hasError('email') && form.get('email')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+      </div>
+
+      <div class="mt-4">
+        <label for="username">Username</label>
+        <input
+          formControlName="username"
+          id="username"
+          type="text"
+          class="w-full ring-1 h-12 rounded-md ring-gray-200 focus:outline-gray-300"
+        />
+
+        <span
+        class="text-red-500"
+          *ngIf="
+            form.get('username')?.hasError('required') && form.get('username')?.touched
+          "
+        >
+          El campo es requerido
+        </span>
+      </div>
+
+      <div class="mt-4 flex justify-between">
+        <button
+          routerLink="/"
+          class="px-4 text-gray-800 focus:ring-2 focus:bg-gray-400 focus:ring-gray-300 border py-2.5 rounded-md border-gray-300"
+        >
+          Volver
+        </button>
+        <button
+          [disabled]="form.invalid"
+          type="submit"
+          class="px-4 focus:ring-2 focus:bg-blue-600 bg-blue-500 text-white py-2.5 rounded-md"
+        >
+          Aceptar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
